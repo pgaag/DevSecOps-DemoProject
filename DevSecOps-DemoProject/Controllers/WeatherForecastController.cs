@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DevSecOps_DemoProject_Common.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -19,7 +20,7 @@ namespace DevSecOps_DemoProject.Controllers
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
-            _logger = logger;
+            _logger = Ensure.NotNull((() => logger));
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
